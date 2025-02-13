@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#app,
+.wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'PingFang SC', "Helvetica Neue", Helvetica, "microsoft yahei", arial, STHeiTi, sans-serif;
+
+}
+
+a {
+    text-decoration: none
+}
+
+.navContainer {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: #f0f0f0;
+
+}
+
+.menuContainer {
+    width: 210px;
+    min-width: 210px;
+    height: 100vh;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+    font-size: 16px;
+}
+
+.menuUnfoldCss {
+    width: 56px;
+    min-width: 56px;
+
+}
+
+.opacity {
+    opacity: 0;
+}
+
+.nav-header {
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.content {
+    height: calc(100% - 100px);
+    background-color: #f5f5f5;
+}
+
+.menu-enter-active,
+.menu-leave-active {
+    transition: all 0.3s;
+}
+
+.menu-enter-from,
+.menu-leave-to {
+    opacity: 0;
+}
+
+
+/* 进入或离开动画的生效状态。*/
+.move-enter-active,
+.move-leave-active {
+    /* 透明度0.1秒 ease渐变 */
+    transition: opacity .1s ease;
+}
+
+/* 进入动画的起始状态 ， 离开动画的结束状态 */
+.move-enter-from,
+.move-leave-to {
+    /* 完全透明 */
+    opacity: 0;
+}
+/* 内容区域高度 */
+.app-container{
+    height: calc(100% - 40px);
+}
