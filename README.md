@@ -8,3 +8,8 @@ npm 10.9.0
 `pnpm add qs`
 
 1. 初始化 完成若依接口登录请求
+2. 定义axios请求参数类型
+
+```ts
+description;
+```

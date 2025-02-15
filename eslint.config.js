@@ -107,4 +107,11 @@ export default [
       'import/default': 'off', // 禁用 import/default 规则
     },
   },
+  // 针对 utils/core/types.ts 文件的特定配置
+  {
+    files: ['**/utils/core/types.ts'], // 指定文件路径
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off',
+    },
+  },
 ];
