@@ -1,0 +1,70 @@
+{
+	"code": 200,
+	"success": true,
+	"data": {
+		"currentDay": "2024-05-14",
+		"lastDay": "2024-05-13",
+		"currentFlowList": [
+			{
+				"id": "1891930000000000001",
+				"createUser": null,
+				"createDept": null,
+				"createTime": "2024-05-14 02:00:00",
+				"updateUser": null,
+				"updateTime": "2024-05-14 02:03:00",
+				"status": 1,
+				"isDeleted": 0,
+				"stcd": "SL5301810201-1",
+				"stnm": "青龙集镇片区供水流量监测点",
+				"tm": "2024-05-14 02:00:00",
+				"q": "0.48",
+				"s": "0.07",
+				"w": "156940.00",
+				"markUp": "1",
+				"tw": "3.00",
+				"tms": null,
+				"hours": null
+			},
+			{
+				"id": "1891930000000000002",
+				"createUser": null,
+				"createDept": null,
+				"createTime": "2024-05-14 02:15:00",
+				"updateUser": null,
+				"updateTime": "2024-05-14 02:18:00",
+				"status": 1,
+				"isDeleted": 0,
+				"stcd": "SL5301810201-1",
+				"stnm": "青龙集镇片区供水流量监测点",
+				"tm": "2024-05-14 02:15:00",
+				"q": "0.42",
+				"s": "0.07",
+				"w": "156943.00",
+				"markUp": "1",
+				"tw": "3.00",
+				"tms": null,
+				"hours": null
+			},
+			{
+				"id": "1891930000000000003",
+				"createUser": null,
+				"createDept": null,
+				"createTime": "2024-05-14 02:30:00",
+				"updateUser": null,
+				"updateTime": "2024-05-14 02:33:00",
+				"status": 1,
+				"isDeleted": 0,
+				"stcd": "SL5301810201-1",
+				"stnm": "青龙集镇片区供水流量监测点",
+				"tm": "2024-05-14 02:30:00",
+				"q": "0.38",
+				"s": "0.07",
+				"w": "156946.00",
+				"markUp": "1",
+				"tw": "3.00",
+				"tms": null,
+				"hours": null
+			}
+		]
+	}
+}

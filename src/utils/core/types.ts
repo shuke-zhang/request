@@ -1,43 +1,36 @@
-import type {
-  AxiosError,
-  AxiosRequestConfig,
-  AxiosResponse,
-  CancelToken,
-} from 'axios';
+import type { AxiosError, AxiosRequestConfig, AxiosResponse, CancelToken } from 'axios';
 /**
  * @description 请求配置参数类型
  */
-export interface CustomAxiosRequestConfig extends AxiosRequestConfig {
+export interface CustomRequestOption extends AxiosRequestConfig {
   /**
    * @description 是否需要 Token
    */
   withToken?: boolean;
-
+  /**
+   * @description headers 携带token的key 默认 Authorization
+   */
+  tokenKey?: string;
   /**
    * @description Token 的值
    */
   token?: string;
-
   /**
-   * @description 是否返回原生响应
+   * @description Token 的前缀 默认 Bearer
    */
-  returnRawResponse?: boolean;
-
+  tokenPrefix?: string;
   /**
    * @description 是否加上时间戳
    */
-  withTimestamp?: boolean;
-
+  joinTime?: boolean;
+  /**
+   * @description 是否返回原生响应
+   */
+  isReturnRawResponse?: boolean;
   /**
    * @description 是否忽略重复请求
    */
   ignoreDuplicateRequest?: boolean;
-
-  /**
-   * @description Token 的前缀
-   */
-  tokenPrefix?: string;
-
   /**
    * @description 错误发生时的处理函数
    */
@@ -128,4 +121,14 @@ export interface HttpHandlers {
    * @param msg
    */
   onError?(msg: string): void;
+}
+
+/**
+ * @description 请求方法
+ */
+export enum HttpRequestMethodsEnum {
+  GET = 'GET',
+  POST = 'POST',
+  PUT = 'PUT',
+  DELETE = 'DELETE',
 }

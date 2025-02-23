@@ -1,5 +1,5 @@
 // utils/http/HttpRequestDeduplicator.ts
-import type { AxiosRequestConfig } from 'axios';
+import type { InternalAxiosRequestConfig } from 'axios';
 
 /**
  * @description http请求去重器
@@ -15,7 +15,7 @@ export class HttpRequestDeduplicator {
   /**
    * @description 生成唯一请求标识 用于判断是否跟之前的请求一样
    */
-  static generateUniqueIdentifier(config: AxiosRequestConfig): string {
+  static generateUniqueIdentifier(config: InternalAxiosRequestConfig): string {
     console.log([config.method?.toUpperCase(), config.url].join('&'));
     return [config.method?.toUpperCase(), config.url].join('&');
   }
@@ -23,7 +23,7 @@ export class HttpRequestDeduplicator {
   /**
    * @description 添加请求到跟踪队列 如果先前有相同请求则取消
    */
-  addPending(config: AxiosRequestConfig): void {
+  addPending(config: InternalAxiosRequestConfig) {
     const identifier = HttpRequestDeduplicator.generateUniqueIdentifier(config);
     /**
      * 如果已有相同请求，先取消
@@ -38,11 +38,13 @@ export class HttpRequestDeduplicator {
     const controller = new AbortController();
     config.signal = controller.signal;
     this.pendingMap.set(identifier, controller);
-    console.log('addPending', this.pendingMap);
+    return controller.signal;
   }
 
-  // 移除单个请求
-  removePending(config: AxiosRequestConfig): void {
+  /**
+   *  @description 移除单个请求
+   */
+  removePending(config: InternalAxiosRequestConfig): void {
     const identifier = HttpRequestDeduplicator.generateUniqueIdentifier(config);
     const controller = this.pendingMap.get(identifier);
 
@@ -53,7 +55,9 @@ export class HttpRequestDeduplicator {
     }
   }
 
-  // 取消所有请求
+  /**
+   * @description 取消所有请求
+   */
   removeAllPending(): void {
     this.pendingMap.forEach(controller => {
       controller.abort('All requests canceled');
@@ -61,7 +65,9 @@ export class HttpRequestDeduplicator {
     this.pendingMap.clear();
   }
 
-  // 重置去重器
+  /**
+   * @description 重置去重器
+   */
   reset(): void {
     this.pendingMap = new Map();
   }
